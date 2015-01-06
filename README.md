@@ -14,6 +14,15 @@ $('#fieldId').colorShades({
     base_color: BASE_COLOR
 });
 
+Exmaple  : 
+
+$('#fieldId').colorShades({
+    l_items: 2,
+    r_items: 3,
+    step: 2,
+    base_color: '#345a01'
+});
+
 ``` 
 * BASE_COLOR is hex color code for color which shades are needed 
 * LIGHTER_SHADES_COUNT is color shades lighter than base color.

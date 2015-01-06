@@ -1,3 +1,10 @@
+/*
+    Copyright 2015 Kuldeep Kamboj
+    colorShades.js (https://github.com/kuldeep-k/colorShades)
+    Color Shades jQuery Plugin 
+    Apache License
+*/
+
 (function ( $ ) {
     $.fn.colorShades = function(options) {
         var settings = $.extend({
