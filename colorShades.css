@@ -1,8 +1,11 @@
 table.color-shades {
+  margin-top: 5px;
+  margin-left: 5px;    
   border-collapse: collapse;
 }
 table.color-shades td, table.color-shades th {
   border: 1px solid black;
+  cursor: pointer;   
 }
 table.color-shades tr:first-child th {
   border-top: 0;
@@ -10,10 +13,10 @@ table.color-shades tr:first-child th {
 table.color-shades tr:last-child td {
   border-bottom: 0;
 }
-table.color-shades tr td:first-child,
+/*table.color-shades tr td:first-child,
 table.color-shades tr th:first-child {
   border-left: 0;
-}
+}*/
 table.color-shades tr td:last-child,
 table.color-shades tr th:last-child {
   border-right: 0;

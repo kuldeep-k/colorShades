@@ -1,7 +1,7 @@
 /*
     Copyright 2015 Kuldeep Kamboj
     colorShades.js (https://github.com/kuldeep-k/colorShades)
-    Color Shades jQuery Plugin 
+    Color Shades jQuery Plugin - version 0.2 
     Apache License
 */
 
@@ -13,11 +13,13 @@
             r_items: 7,
             step: 2,
             base_color: '#568203',
-            show_color_code: false
+            show_color_code: false,
+            onSelect : function(color) {},
 
         }, options );
         var cell_count = settings.l_items + settings.r_items + 1;
         var input_name = $(this).prop('name');
+        $('table.color-shades-'+ input_name).remove();
         $('<table class="color-shades color-shades-'+ input_name +'"><tr></tr><tr></tr></table>').insertAfter($(this));
         var col = tinycolor(settings.base_color);
         var colostr = col.toString();
@@ -61,6 +63,7 @@
         $('table.color-shades-'+ input_name + ' tr:first').find('td').click(function() {
             var color = tinycolor($(this).css('background-color'));
             $input.val(color.toHex());            
+            settings.onSelect.call( color );
         });
         return this;
     }; 

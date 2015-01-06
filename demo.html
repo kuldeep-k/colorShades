@@ -20,7 +20,10 @@ $('#custom').colorShades({
             l_items: 3,
             r_items: 5,
             step: 3,
-            base_color: '#568203'
+            base_color: '#568203',
+            onSelect: function() {
+                console.log($('#custom').val());
+            }
         });
 
 $('#custom1').colorShades({
