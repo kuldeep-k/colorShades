@@ -1,0 +1,36 @@
+<html>
+<head>
+<link href="colorShades.css" media="screen" rel="stylesheet" type="text/css">
+<script src="vendors/jquery.min.js"></script>
+<script src="vendors/tinycolor.js"></script>
+<script src="colorShades.js"></script>
+
+</head>
+<body>
+<input type="text" name="custom" id="custom"  />
+<br/>
+<br/><br/><br/><br/>
+
+<input type="text" name="custom1" id="custom1" />
+
+
+<script>
+
+$('#custom').colorShades({
+            l_items: 3,
+            r_items: 5,
+            step: 3,
+            base_color: '#568203'
+        });
+
+$('#custom1').colorShades({
+            l_items: 20,
+            r_items: 20,
+            step: 1,
+            base_color: '#568203'
+        });
+
+
+</script>
+</body>
+</html>
