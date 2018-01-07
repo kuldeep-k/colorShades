@@ -15,8 +15,10 @@
             base_color: '#568203',
             show_color_code: false,
             onSelect : function(color) {},
+            onComplete : function(shades) {},
 
         }, options );
+        var shades = [];
         var cell_count = settings.l_items + settings.r_items + 1;
         var input_name = $(this).prop('name');
         $('table.color-shades-'+ input_name).remove();
@@ -35,6 +37,7 @@
         for(i=0;i<settings.l_items;i++)
         {
             colostr = col.lighten(settings.step).toString();
+            shades.push(colostr);
             $('table.color-shades-'+ input_name + ' tr:first').find('td').eq(settings.l_items-i-1).css('background-color', colostr);
             if(settings.show_color_code === true)
             {
@@ -44,6 +47,7 @@
 
         var col = tinycolor(settings.base_color);
         var colostr = col.toString();
+        shades.push(colostr);
 
         $('table.color-shades-'+ input_name + ' tr:first').find('td').eq(settings.l_items).css('background-color', colostr);
         if(settings.show_color_code === true)
@@ -53,6 +57,7 @@
         for(i=0;i<settings.r_items;i++)
         {
             colostr = col.darken(settings.step).toString();
+            shades.push(colostr);
             $('table.color-shades-'+ input_name + ' tr:first').find('td').eq(settings.l_items+1+i).css('background-color', colostr);
             if(settings.show_color_code === true)
             {
@@ -65,6 +70,9 @@
             $input.val(color.toHex());            
             settings.onSelect.call( color );
         });
+        console.log('--------------------')
+        console.log(shades)
+        settings.onComplete.call( shades );
         return this;
     }; 
 }( jQuery ));

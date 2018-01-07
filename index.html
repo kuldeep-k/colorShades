@@ -1,0 +1,93 @@
+<html>
+<head>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+<link href="colorShades.css" media="screen" rel="stylesheet" type="text/css">
+<script src="vendors/jquery.min.js"></script>
+<script src="vendors/tinycolor.js"></script>
+<script src="colorShades.js"></script>
+
+</head>
+<body>
+<div class="container">
+<form class="form">
+
+<div class="row">
+    <div class="col-md-6"><label>Color</label>
+    </div>
+    <div class="col-md-6"><input type="color" name="color" id="color" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6"><label>Left Side Colors Count</label>
+    </div>
+    <div class="col-md-6"><input type="number" name="l_count" id="l_count" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6"><label>Right Side Colors Count</label>
+    </div>
+    <div class="col-md-6"><input type="number" name="r_count" id="r_count" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6"><label>Color Change Metric</label>
+    </div>
+    <div class="col-md-6"><input type="number" name="step" id="step" />
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6"><button type="button" id="generate" >Generate Shades</button>
+    </div>
+</div>
+
+</form>
+<div class="row">
+    <input type="text" id="shade_container" >
+</div>
+
+</div>
+
+
+
+<script>
+
+$('#generate').click(function(){
+let l_count = Number($('#l_count').val());
+if(Number($('#l_count').val()) === NaN) {
+    alert('Please select a left color count');
+    return  false;
+}
+let r_count = Number($('#r_count').val());
+if(Number($('#r_count').val()) === NaN) {
+    alert('Please select right color count');
+    return  false;
+}
+let step = Number($('#step').val());
+if(Number($('#step').val()) === NaN) {
+    alert('Please select a step');
+    return  false;
+}
+let color = $('#color').val();
+if($('#color').val() === "") {
+    alert('Please select a color');
+    return  false;
+}
+
+$('#shade_container').colorShades({
+    l_items: l_count,
+    r_items: r_count,
+    step: step,
+    base_color: color,
+    onSelect: function(color) {
+        console.log($('#shade_container').val());
+        console.log(color)
+    },
+    onComplete: function(shades) {
+        console.log(shades)
+    },
+});
+});
+
+</script>
+</body>
+</html>
